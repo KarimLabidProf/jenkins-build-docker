@@ -6,12 +6,12 @@ node{
     }
 
     stage('Build image') {
-        app = docker.build("DevOps/nginx")
+        app = docker.build("devops/nginx")
     }
 
     stage('Run image') {
         // Lancer le conteneur en arrière-plan avec un nom explicite
-        bat 'docker run -d -p 80:80 --name my_nginx_container DevOps/nginx'
+        bat 'docker run -d -p 80:80 --name my_nginx_container devops/nginx'
 
         // Petite pause pour laisser le conteneur démarrer (optionnel)
         sleep(time: 3, unit: 'SECONDS')
