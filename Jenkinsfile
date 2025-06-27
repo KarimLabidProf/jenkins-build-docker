@@ -1,6 +1,11 @@
 node{
   def app
 
+    stage ('Clean')
+	{
+	bat 'docker rm -f my_nginx || exit 0'
+	}
+
     stage('Clone') {
         checkout scm
     }
